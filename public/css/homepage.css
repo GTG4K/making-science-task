@@ -29,12 +29,24 @@ main {
 }
 
 .home-actions {
-    margin: 2rem 0 0 0;
-    padding: 1rem;
+    margin: 4rem 0 0 0;
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.search-input {
+    margin: 2rem 0;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input input {
+    width: 25rem;
+    padding: 4px;
 }
 
 .btn-green {

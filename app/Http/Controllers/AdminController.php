@@ -9,8 +9,20 @@ use App\Models\Book;
 
 class AdminController extends Controller
 {
-    public function index(){
-        $books = Book::with('authors')->get();
+    public function index(Request $request){
+        $searchQuery = request('search');
+        $books = Book::with('authors');
+        
+        if($searchQuery){
+            $books->where(function ($query) use ($searchQuery) {
+                $query->where('name', 'like', '%' . $searchQuery . '%')
+                    ->orWhereHas('authors', function ($authorQuery) use ($searchQuery) {
+                    $authorQuery->where('name', 'like', '%' . $searchQuery . '%');
+                });
+            });
+        }
+
+        $books = $books->get();
         return view('home', ['books'=> $books]);
     }
 

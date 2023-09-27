@@ -17,10 +17,10 @@
         <a class="btn-blue" href="/authors">view Authors</a>
     </div>
 
-    <div class="search-input">
+    <form action="/" method="GET" class="search-input">
         <h2>Search: </h2>
-        <input type="text" name="search">
-    </div>
+        <input type="text" name="search" value="{{ request()->search }}">
+    </form>
 
     <main>
         @foreach ($books as $book)
