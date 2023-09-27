@@ -15,6 +15,10 @@
     <div class="home-actions">
         <a class="btn-green" href="/add">Add Book</a>
         <a class="btn-blue" href="/authors">view Authors</a>
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="btn-red" type="submit">Log out</button>
+        </form>
     </div>
 
     <form action="/" method="GET" class="search-input">
